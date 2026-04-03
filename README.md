@@ -1,4 +1,4 @@
-#Hello 
+# Hello 
 Đây là đồ án tốt nghiệp của mình năm 2025. Đồ án này tập trung vào việc nghiên cứu và chế tạo một mô hình robot tự hành có khả năng di chuyển ổn định và chính xác giữa các luống cây trồng. Từ đó mở đường cho các robot tiên tiến hơn tưới cây, tưới phân. ----tối ưu hóa các công việc chăm sóc nông nghiệp như phun thuốc, bón phân hoặc giám sát cây trồng.
 
 Tính năng nổi bật
