@@ -1,0 +1,272 @@
+/*
+ * mainpp.cpp
+ */
+#include "main.h"
+#include "mainpp.h"
+
+#include <ros.h>
+#include <sensor_msgs/Imu.h>
+#include <geometry_msgs/Twist.h>
+#include <std_msgs/Float32.h>
+#include <nav_msgs/Odometry.h>
+#include <math.h>
+
+extern "C" {
+  #include "mpu6050.h"
+}
+
+/* ========= CubeMX handles ========= */
+extern I2C_HandleTypeDef hi2c3;
+extern UART_HandleTypeDef huart1;
+extern TIM_HandleTypeDef  htim8;   // Motor PWM: CH1 forward, CH2 reverse
+extern TIM_HandleTypeDef  htim11;  // Servo PWM: CH1 (50 Hz, 1 tick = 1us)
+
+/* ========= ROS ========= */
+static ros::NodeHandle nh;
+
+/* IMU */
+static sensor_msgs::Imu imu_msg;
+static ros::Publisher  imu_pub("imu/data", &imu_msg);
+
+/* Wheel speed (debug/monitor) */
+static std_msgs::Float32 wheel_speed_msg;
+static ros::Publisher    wheel_speed_pub("wheel_speed", &wheel_speed_msg);
+
+/* Wheel odom (EKF input) */
+static nav_msgs::Odometry wheel_odom_msg;
+static ros::Publisher     wheel_odom_pub("wheel_odom", &wheel_odom_msg);
+
+/* ========= UART callbacks cho rosserial (HAL non-blocking) ========= */
+void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart){
+  if (huart == &huart1) nh.getHardware()->flush();
+}
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
+  if (huart == &huart1) nh.getHardware()->reset_rbuf();
+}
+
+/* ========= Utils ========= */
+static inline float clampf(float x, float lo, float hi){
+  return (x < lo) ? lo : (x > hi) ? hi : x;
+}
+
+/* =================== MOTOR & SERVO =================== */
+static inline void motor_set_percent(float p){
+  // p in [-1..1]; >0 = tiến (CH1), <0 = lùi (CH2)
+  const float deadband = 0.02f;
+  p = clampf(p, -1.0f, 1.0f);
+  if (fabsf(p) < deadband) p = 0.0f;
+
+  const uint32_t arr = __HAL_TIM_GET_AUTORELOAD(&htim8);
+  const uint32_t ccr = (uint32_t)(fabsf(p) * (float)arr);
+
+  if (p >= 0.0f){
+    __HAL_TIM_SET_COMPARE(&htim8, TIM_CHANNEL_1, ccr); // forward
+    __HAL_TIM_SET_COMPARE(&htim8, TIM_CHANNEL_2, 0);   // reverse off
+  }else{
+    __HAL_TIM_SET_COMPARE(&htim8, TIM_CHANNEL_1, 0);   // forward off
+    __HAL_TIM_SET_COMPARE(&htim8, TIM_CHANNEL_2, ccr); // reverse
+  }
+}
+
+/* Servo steering: TIM11 CH1, 1 tick = 1us, 50Hz */
+#define SERVO_US_MIN     1000
+#define SERVO_US_MAX     2000
+#define SERVO_US_CENTER  1500
+#define SERVO_MAX_DEG    30.0f
+
+static inline uint16_t servo_pulse_from_deg(float deg){
+  deg = clampf(deg, -SERVO_MAX_DEG, SERVO_MAX_DEG);
+  const float k = (float)(SERVO_US_MAX - SERVO_US_MIN) / (2.0f * SERVO_MAX_DEG);
+  const float us = SERVO_US_CENTER + k * deg;
+  return (uint16_t)us; // TIM11 PSC=83, ARR=19999 ⇒ 1 tick = 1us
+}
+static inline void servo_write_deg(float deg){
+  __HAL_TIM_SET_COMPARE(&htim11, TIM_CHANNEL_1, servo_pulse_from_deg(deg));
+}
+
+/* =================== ENCODER PB5(A) / PB6(B) qua EXTI (X4) =================== */
+/* Tham số cần chỉnh theo xe của bạn */
+#define WHEEL_RADIUS_M      0.05f   // bán kính bánh (m)
+#define ENCODER_CPR         333     // CPR 1 kênh (vd jgb37-520 333 CPR)
+#define ENCODER_CPR_X4      (ENCODER_CPR * 4)
+
+#define ENC_PORT_A   GPIOB
+#define ENC_PIN_A    GPIO_PIN_5
+#define ENC_PORT_B   GPIOB
+#define ENC_PIN_B    GPIO_PIN_6
+
+static volatile int32_t enc_pos = 0;   // tổng xung (X4)
+static volatile uint8_t enc_state = 0; // (A<<1 | B)
+static float wheel_speed_mps = 0.0f;
+
+static inline uint8_t read_AB(){
+  const uint8_t a = (HAL_GPIO_ReadPin(ENC_PORT_A, ENC_PIN_A) != 0);
+  const uint8_t b = (HAL_GPIO_ReadPin(ENC_PORT_B, ENC_PIN_B) != 0);
+  return (uint8_t)((a<<1) | b);
+}
+
+static inline int8_t qdelta(uint8_t prev, uint8_t cur){
+  static const int8_t table[16] = {
+    /* 00->00,01,10,11 */  0, +1, -1,  0,
+    /* 01->00,01,10,11 */ -1,  0,  0, +1,
+    /* 10->00,01,10,11 */ +1,  0,  0, -1,
+    /* 11->00,01,10,11 */  0, -1, +1,  0
+  };
+  return table[(prev<<2) | cur];
+}
+
+static void encoder_soft_init(){
+  enc_state = read_AB();
+}
+
+extern "C" void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
+  if (GPIO_Pin == ENC_PIN_A || GPIO_Pin == ENC_PIN_B){
+    const uint8_t cur = read_AB();
+    enc_pos += qdelta(enc_state, cur);
+    enc_state = cur;
+  }
+}
+
+static void encoder_update_speed(float dt){
+  static int32_t enc_last = 0;
+  const int32_t p    = enc_pos;
+  const int32_t diff = p - enc_last;
+  enc_last = p;
+
+  const float rev = (float)diff / (float)ENCODER_CPR_X4;                // vòng
+  const float s   = (2.0f * (float)M_PI * WHEEL_RADIUS_M) * rev;        // mét
+  wheel_speed_mps = s / dt;                                             // m/s
+}
+
+/* =================== ROS Subscribers =================== */
+// /cmd_vel: linear.x ∈ [-1..1] → %motor, angular.z = độ → servo
+static void cmdvel_cb(const geometry_msgs::Twist& msg){
+  const float motor    = clampf((float)msg.linear.x, -1.0f, 1.0f);
+  float       steerDeg = (float)msg.angular.z;            // nếu rad: steerDeg = msg.angular.z * 57.2958f;
+  steerDeg = clampf(steerDeg, -SERVO_MAX_DEG, SERVO_MAX_DEG);
+
+  motor_set_percent(motor);
+  servo_write_deg(steerDeg);
+}
+
+static void motor_cb(const std_msgs::Float32& m){ motor_set_percent(m.data); }
+static void steer_cb(const std_msgs::Float32& s){ servo_write_deg(s.data); }
+
+static ros::Subscriber<geometry_msgs::Twist> sub_cmdvel("cmd_vel", &cmdvel_cb);
+static ros::Subscriber<std_msgs::Float32>    sub_motor("motor/percent", &motor_cb);
+static ros::Subscriber<std_msgs::Float32>    sub_steer("steer/deg", &steer_cb);
+
+/* =================== IMU helpers =================== */
+static mpu6050_data_t mpu;
+
+static void imu_msg_init(){
+  imu_msg.orientation_covariance[0] = -1.0; // không cung cấp orientation
+  imu_msg.angular_velocity_covariance[0]  = 0.02;
+  imu_msg.angular_velocity_covariance[4]  = 0.02;
+  imu_msg.angular_velocity_covariance[8]  = 0.02;
+  imu_msg.linear_acceleration_covariance[0] = 0.04;
+  imu_msg.linear_acceleration_covariance[4] = 0.04;
+  imu_msg.linear_acceleration_covariance[8] = 0.04;
+}
+
+static inline void publish_imu_now(){
+  if (mpu6050_read(&hi2c3, &mpu) == HAL_OK){
+    imu_msg.header.stamp = nh.now();
+    imu_msg.header.frame_id = (char*)"imu_link";
+    imu_msg.angular_velocity.x     = mpu.gx;
+    imu_msg.angular_velocity.y     = mpu.gy;
+    imu_msg.angular_velocity.z     = mpu.gz;
+    imu_msg.linear_acceleration.x  = mpu.ax;
+    imu_msg.linear_acceleration.y  = mpu.ay;
+    imu_msg.linear_acceleration.z  = mpu.az;
+    imu_pub.publish(&imu_msg);
+  }
+}
+
+/* =================== Arduino-style API =================== */
+void setup(void)
+{
+  nh.getHardware()->init();  // dùng UART1 mặc định trong STM32Hardware.h
+  nh.initNode();
+
+  imu_msg_init();
+  nh.advertise(imu_pub);
+  nh.advertise(wheel_speed_pub);
+  nh.advertise(wheel_odom_pub);
+
+  nh.subscribe(sub_cmdvel);
+  nh.subscribe(sub_motor);
+  nh.subscribe(sub_steer);
+
+  (void)mpu6050_init(&hi2c3);
+
+  HAL_TIM_PWM_Start(&htim8,  TIM_CHANNEL_1);
+  HAL_TIM_PWM_Start(&htim8,  TIM_CHANNEL_2);
+  HAL_TIM_PWM_Start(&htim11, TIM_CHANNEL_1);
+
+  motor_set_percent(0.0f);
+  servo_write_deg(0.0f);
+
+  encoder_soft_init();
+
+}
+
+void loop(void)
+{
+  nh.spinOnce();
+
+  const uint32_t now = HAL_GetTick();
+
+  /* IMU ~6 Hz */
+  static uint32_t last_imu_ms = 0;
+  static uint8_t  step3 = 0;
+  static uint32_t imu_period_ms = 167;     // 167,167,166 ≈ 6 Hz
+  if ((uint32_t)(now - last_imu_ms) >= imu_period_ms){
+    last_imu_ms = now;
+    publish_imu_now();
+    step3 = (uint8_t)((step3 + 1) % 3);
+    imu_period_ms = (step3 == 2) ? 166 : 167;
+  }
+
+  /* Encoder & wheel_odom @100 Hz */
+  static uint32_t last_enc_ms = 0;
+  if ((uint32_t)(now - last_enc_ms) >= 10){
+    const float dt = (now - last_enc_ms) * 0.001f;
+    last_enc_ms = now;
+
+    encoder_update_speed(dt);
+
+    /* Publish wheel_speed (debug) */
+    wheel_speed_msg.data = wheel_speed_mps;
+    wheel_speed_pub.publish(&wheel_speed_msg);
+
+    /* Publish /wheel_odom (twist only, pose = 0 & cov lớn) */
+    wheel_odom_msg.header.stamp    = nh.now();
+    wheel_odom_msg.header.frame_id = (char*)"odom";
+    wheel_odom_msg.child_frame_id  = (char*)"base_link";
+
+    // pose = 0, covariance lớn (để EKF không tin pose từ odom0)
+    for (int i=0;i<36;i++) wheel_odom_msg.pose.covariance[i] = 0.0;
+    wheel_odom_msg.pose.pose.orientation.w = 1.0;
+    wheel_odom_msg.pose.covariance[0]  = 1e6;
+    wheel_odom_msg.pose.covariance[7]  = 1e6;
+    wheel_odom_msg.pose.covariance[14] = 1e6;
+    wheel_odom_msg.pose.covariance[21] = 1e6;
+    wheel_odom_msg.pose.covariance[28] = 1e6;
+    wheel_odom_msg.pose.covariance[35] = 1e6;
+
+    // twist: vx từ encoder; wz để 0 (EKF lấy gyro từ IMU)
+    wheel_odom_msg.twist.twist.linear.x  = wheel_speed_mps;
+    wheel_odom_msg.twist.twist.linear.y  = 0.0;
+    wheel_odom_msg.twist.twist.linear.z  = 0.0;
+    wheel_odom_msg.twist.twist.angular.x = 0.0;
+    wheel_odom_msg.twist.twist.angular.y = 0.0;
+    wheel_odom_msg.twist.twist.angular.z = 0.0;
+
+    for (int i=0;i<36;i++) wheel_odom_msg.twist.covariance[i] = 0.0;
+    wheel_odom_msg.twist.covariance[0]  = 0.05;  // vx
+    wheel_odom_msg.twist.covariance[35] = 0.05;  // wz
+
+    wheel_odom_pub.publish(&wheel_odom_msg);
+  }
+}

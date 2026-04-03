@@ -1,0 +1,20 @@
+Added Component: Designator=U5(SOIC127P600X175-8N)
+Add component (AddParameter): Name = "Check_prices"; Value = "https://www.snapeda.com/parts/ACS712ELCTR-05B-T/Allegro/view-part/?ref=eda"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "Allegro"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "ACS712ELCTR-05B-T"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "SOIC-8 Allegro MicroSystems LLC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/ACS712ELCTR-05B-T/Allegro/view-part/?ref=snap"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=NetQ1_3 Pin=U5-1
+Added Pin To Net: NetName=NetQ1_3 Pin=U5-2
+Added Pin To Net: NetName=ToVcc_NANO Pin=U5-3
+Added Pin To Net: NetName=ToVcc_NANO Pin=U5-4
+Added Pin To Net: NetName=GND Pin=U5-5
+Added Pin To Net: NetName=FILTER Pin=U5-6
+Added Pin To Net: NetName=Current_SIG Pin=U5-7
+Added Pin To Net: NetName=+5 Pin=U5-8
+Added Member To Class: ClassName=Nano_Power_Detection Member=Component D1 Zener 5.1V
+Added Member To Class: ClassName=Nano_Power_Detection Member=Component D2 Zener 5.1V
+Added Member To Class: ClassName=Nano_Power_Detection Member=Component D3 Zener 5.1V
+Added Member To Class: ClassName=Nano_Power_Detection Member=Component D4 Zener 4.7V
+Added Member To Class: ClassName=Nano_Power_Detection Member=Component U5 ACS712ELCTR-05B-T

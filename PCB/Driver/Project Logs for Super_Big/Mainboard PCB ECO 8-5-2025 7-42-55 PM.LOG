@@ -1,0 +1,5 @@
+Added Pin To Net: NetName=NetQ2_3 Pin=Q2-3
+Added Pin To Net: NetName=NetQ2_3 Pin=R9-1
+Added Net: Name=NetQ2_3
+Added Room: Name=Mainboard_1
+Added Room: Name=Mainboard_2

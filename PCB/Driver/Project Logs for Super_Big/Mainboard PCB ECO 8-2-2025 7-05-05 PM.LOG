@@ -1,0 +1,10 @@
+Added Component: Designator=J1(3_PIN SERVO CONNECTOR)
+Added Component: Designator=J2(3_PIN SERVO CONNECTOR)
+Added Pin To Net: NetName=+3V3 Pin=J1-1
+Added Pin To Net: NetName=NetJ1_2 Pin=J1-2
+Added Pin To Net: NetName=GND Pin=J1-3
+Added Pin To Net: NetName=+3V3 Pin=J2-1
+Added Pin To Net: NetName=NetJ2_2 Pin=J2-2
+Added Pin To Net: NetName=GND Pin=J2-3
+Added Member To Class: ClassName=Mainboard_1 Member=Component J1 3_pin connector
+Added Member To Class: ClassName=Mainboard_1 Member=Component J2 3_pin connector

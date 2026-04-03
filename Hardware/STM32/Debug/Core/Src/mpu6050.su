@@ -1,0 +1,4 @@
+../Core/Src/mpu6050.c:4:26:mpu_write	32	static
+../Core/Src/mpu6050.c:7:26:mpu_read_bytes	40	static
+../Core/Src/mpu6050.c:11:19:mpu6050_init	24	static
+../Core/Src/mpu6050.c:29:19:mpu6050_read	56	static

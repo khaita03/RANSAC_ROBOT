@@ -1,0 +1,9 @@
+Change Component Comment : Designator=C43 Old Comment=12pF New Comment=22pF
+Change Component Comment : Designator=C44 Old Comment=12pF New Comment=22pF
+Added Component: Designator=J3(4_PIN 2.54mm)
+Added Pin To Net: NetName=+3V3 Pin=J3-1
+Added Pin To Net: NetName=GND Pin=J3-2
+Added Pin To Net: NetName=SDIO Pin=J3-3
+Added Pin To Net: NetName=SCLK Pin=J3-4
+Added Member To Class: ClassName=Mainboard_1 Member=Component C8 100nF
+Added Member To Class: ClassName=Mainboard_2 Member=Component J3 4_pin connector

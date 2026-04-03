@@ -1,0 +1,12 @@
+Added Component: Designator=U4(SOIC127P600X175-8N)
+Added Pin To Net: NetName=Vout_1 Pin=U4-1
+Added Pin To Net: NetName=Vref Pin=U4-2
+Added Pin To Net: NetName=NetC35_1 Pin=U4-3
+Added Pin To Net: NetName=GND Pin=U4-4
+Added Pin To Net: NetName=Vref Pin=U4-5
+Added Pin To Net: NetName=NetC36_1 Pin=U4-6
+Added Pin To Net: NetName=Vout_2 Pin=U4-7
+Added Pin To Net: NetName=V_CELL Pin=U4-8
+Added Member To Class: ClassName=Nano_Power_Detection Member=Component U4 LM358DT
+Added Room: Name=Mainboard_1
+Added Room: Name=Mainboard_2

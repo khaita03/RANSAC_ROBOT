@@ -1,0 +1,22 @@
+Added Component: Designator=J3(4_PIN 2.54mm)
+Added Component: Designator=J5(3_PIN SERVO CONNECTOR)
+Added Component: Designator=J6(8_PIN IMU CONNECTOR - duplicate)
+Added Component: Designator=J7(3_PIN SERVO CONNECTOR)
+Added Pin To Net: NetName=+3V3 Pin=J3-1
+Added Pin To Net: NetName=GND Pin=J3-2
+Added Pin To Net: NetName=SDIO Pin=J3-3
+Added Pin To Net: NetName=SCLK Pin=J3-4
+Added Pin To Net: NetName=Camera Pin=J5-1
+Added Pin To Net: NetName=+5 Pin=J5-2
+Added Pin To Net: NetName=GND Pin=J5-3
+Added Pin To Net: NetName=+3V3 Pin=J6-1
+Added Pin To Net: NetName=GND Pin=J6-2
+Added Pin To Net: NetName=SCL Pin=J6-3
+Added Pin To Net: NetName=SDA Pin=J6-4
+Added Pin To Net: NetName=Steer Pin=J7-1
+Added Pin To Net: NetName=+5 Pin=J7-2
+Added Pin To Net: NetName=GND Pin=J7-3
+Added Member To Class: ClassName=Mainboard_2 Member=Component J3 4_pin connector
+Added Member To Class: ClassName=Mainboard_2 Member=Component J5 3_pin steering wheel
+Added Member To Class: ClassName=Mainboard_2 Member=Component J6 8_pin IMU Connector
+Added Member To Class: ClassName=Mainboard_2 Member=Component J7 3_pin steering wheel

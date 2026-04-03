@@ -1,0 +1,6 @@
+Removed Pin From Net: NetName=ToVcc_NANO Pin=C37-1
+Removed Pin From Net: NetName=GND Pin=C37-2
+Removed Member From Class: ClassName=Nano_Power_Detection Member=C37
+Added Room: Name=Mainboard_1
+Added Room: Name=Mainboard_2
+Added Room: Name=Nano_Power_Detection

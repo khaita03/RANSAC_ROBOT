@@ -1,0 +1,10 @@
+Output: Bill of Materials
+Type  : BOM
+From  : Variant [[No Variations]] of Project [Super_Big.PrjPcb]
+   Generated File[Bill of Materials-Super_Big.xlsx]
+
+
+Files Generated   : 1
+Documents Printed : 0
+
+Finished Output Generation At 9:42:33 PM On 8/28/2025

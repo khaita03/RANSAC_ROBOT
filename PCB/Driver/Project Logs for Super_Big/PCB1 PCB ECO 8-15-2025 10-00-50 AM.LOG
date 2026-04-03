@@ -1,0 +1,19 @@
+Added Component: Designator=D5(DIOT_M5_025X220N)
+Add component (AddParameter): Name = "Check_prices"; Value = "https://www.snapeda.com/parts/SS54-HF/Comchip/view-part/?ref=eda"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "Comchip Technology"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "SS54-HF"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "DO-214AC-214 Comchip Technology"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/SS54-HF/Comchip/view-part/?ref=snap"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=D6(DIOT_M5_025X220N)
+Added Pin To Net: NetName=NetD5_2 Pin=D5-1
+Added Pin To Net: NetName=GND Pin=D5-2
+Added Pin To Net: NetName=+5 Pin=D6-1
+Added Pin To Net: NetName=GND Pin=D6-2
+Change Net Name : Old Net Name=NetD5_2 New Net Name=NetD5_1
+Added Member To Class: ClassName=Nano_Power_Detection Member=Component D5 SS54
+Added Member To Class: ClassName=Nano_Power_Detection Member=Component D6 TVS_5V
+Added Member To Class: ClassName=Mainboard_2 Member=Component U2 STM32F405RGT6
+Added Room: Name=Mainboard_1
+Added Room: Name=Mainboard_2
+Added Room: Name=Nano_Power_Detection

@@ -1,0 +1,4 @@
+Removed Pin From Net: NetName=NetC3_1 Pin=U1-2
+Added Room: Name=Mainboard_1
+Added Room: Name=Mainboard_2
+Added Room: Name=Nano_Power_Detection

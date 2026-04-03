@@ -1,0 +1,14 @@
+Removed Pin From Net: NetName=NetHD4_1 Pin=U8-4
+Removed Pin From Net: NetName=NetHD4_1 Pin=U8-8
+Removed Pin From Net: NetName=NetHD4_6 Pin=U9-4
+Removed Pin From Net: NetName=NetHD4_6 Pin=U9-8
+Added Pin To Net: NetName=NetHD4_6 Pin=U8-4
+Added Pin To Net: NetName=NetHD4_6 Pin=U8-8
+Added Pin To Net: NetName=NetHD4_1 Pin=U9-4
+Added Pin To Net: NetName=NetHD4_1 Pin=U9-8
+Added Member To Class: ClassName=Nano_Power_Detection Member=Component BS1 Buzzer
+Added Member To Class: ClassName=Mainboard_2 Member=Component HD3 3_pin conn
+Added Member To Class: ClassName=Mainboard_2 Member=Component HD5 6-pin connnector (Encoder DC motor 2mm)
+Added Room: Name=Mainboard_1
+Added Room: Name=Mainboard_2
+Added Room: Name=Nano_Power_Detection

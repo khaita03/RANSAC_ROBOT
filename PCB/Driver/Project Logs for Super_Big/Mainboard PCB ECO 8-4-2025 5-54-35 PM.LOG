@@ -1,0 +1,7 @@
+Added Component: Designator=HD3(3-pin XHB_2.54)
+Added Pin To Net: NetName=TX Pin=HD3-1
+Added Pin To Net: NetName=RX Pin=HD3-2
+Added Pin To Net: NetName=GND Pin=HD3-3
+Added Member To Class: ClassName=Mainboard_1 Member=Component C11 1uF
+Added Member To Class: ClassName=Mainboard_1 Member=Component C12 100nF
+Added Member To Class: ClassName=Mainboard_2 Member=Component HD3 3_pin conn
