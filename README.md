@@ -13,7 +13,11 @@ Cấu trúc phần cứng mạnh mẽ: Sự kết hợp giữa vi điều khiể
 Phần cứng (Hardware)
 
 Mạch Driver
-![image]()
+<p align="left">
+| Ảnh Mạch Driver STM32 | Ảnh Robot Thực Tế |
+| :---: | :---: |
+| <img src="https://path-to-your-image1.png" width="300" alt="Mạch Driver"> | <img src="https://path-to-your-image2.png" width="300" alt="Robot"> |
+</p>
 Bộ xử lý trung tâm: Jetson Nano B01 (Thu thập dữ liệu LiDAR và xử lý thuật toán điều hướng).
 
 Bộ điều khiển động cơ: STM32F405RGT6 (Nhận lệnh điều khiển tốc độ, góc đánh lái chuyển đổi sang xung PWM để điều khiển động cơ DC, Servo).
