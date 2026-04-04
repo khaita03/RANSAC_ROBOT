@@ -10,14 +10,21 @@ Cấu trúc phần cứng mạnh mẽ: Sự kết hợp giữa vi điều khiể
 
 # Thành phần hệ thống
 
-Phần cứng (Hardware)
+## Phần cứng (Hardware)
 
-Mạch Driver
+### Mạch Driver
 <p align="left">
-| Ảnh Mạch Driver STM32 | Ảnh Robot Thực Tế |
-| :---: | :---: |
-| <img src="https://path-to-your-image1.png" width="300" alt="Mạch Driver"> | <img src="https://path-to-your-image2.png" width="300" alt="Robot"> |
+<img src="https://github.com/khaita03/RANSAC_ROBOT/blob/main/real_front.jpg" width="300" alt="Mạch Driver mặt trên">      <img src="https://github.com/khaita03/RANSAC_ROBOT/blob/main/real_back.jpg" width="300" alt="Mạch Driver mặt dưới"> 
 </p>
+Sử dụng phần mềm Altium Designer để thiết kế gồm các thành phần chính hoạt động chính: 
+khối xử lý trung tâm (STM32F405RGT6) 
+<p align="left">
+<img src="https://github.com/khaita03/RANSAC_ROBOT/blob/main/real_front.jpg" width="300" alt="MCU">      
+</p>
+khối nguồn 5V cấp cho Jetson Nano (XL4015)
+khối bảo vệ quá dòng, quá áp cho mạch nguồn 5V (sử dụng OPAMP và ACS712)
+
+
 Bộ xử lý trung tâm: Jetson Nano B01 (Thu thập dữ liệu LiDAR và xử lý thuật toán điều hướng).
 
 Bộ điều khiển động cơ: STM32F405RGT6 (Nhận lệnh điều khiển tốc độ, góc đánh lái chuyển đổi sang xung PWM để điều khiển động cơ DC, Servo).
