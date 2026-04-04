@@ -40,7 +40,7 @@ Cảm biến hỗ trợ: MPU6050 (Cân bằng và xác định hướng hướng
 
 Truyền động: Động cơ DC Servo kèm Encoder độ phân giải cao.
 
-Phần mềm (Software)
+## Phần mềm (Software)
 Hệ điều hành: Ubuntu / ROS (Robot Operating System).
 
 Ngôn ngữ lập trình: C/C++, Python.
