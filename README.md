@@ -16,10 +16,10 @@ Cấu trúc phần cứng mạnh mẽ: Sự kết hợp giữa vi điều khiể
 <p align="left">
 <img src="https://github.com/khaita03/RANSAC_ROBOT/blob/main/real_front.jpg" width="300" alt="Mạch Driver mặt trên">      <img src="https://github.com/khaita03/RANSAC_ROBOT/blob/main/real_back.jpg" width="300" alt="Mạch Driver mặt dưới"> 
 </p>
-Sử dụng phần mềm Altium Designer để thiết kế gồm các thành phần chính hoạt động chính: 
+Sử dụng phần mềm Altium Designer để thiết kế gồm các thành phần chính hoạt động chính. 
 Khối xử lý trung tâm (STM32F405RGT6) 
 <p align="left">
-<img src="https://github.com/khaita03/RANSAC_ROBOT/blob/main/real_front.jpg" width="300" alt="MCU">      
+<img src="" width="300" alt="MCU">      
 </p>
 khối nguồn 5V cấp cho Jetson Nano (XL4015)
 khối bảo vệ quá dòng, quá áp cho mạch nguồn 5V (sử dụng OPAMP và ACS712)
