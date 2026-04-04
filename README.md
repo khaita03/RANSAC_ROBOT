@@ -13,8 +13,10 @@ Cấu trúc phần cứng mạnh mẽ: Sự kết hợp giữa vi điều khiể
 Phần cứng (Hardware)
 
 Mạch Driver
-<p align="mid">
-<img src="https://github.com/khaita03/RANSAC_ROBOT/blob/main/real_front.jpg" width="300" alt="Mạch Driver STM32">
+<p align="left">
+| Ảnh Mạch Driver STM32 | Ảnh Robot Thực Tế |
+| :---: | :---: |
+| <img src="https://path-to-your-image1.png" width="300" alt="Mạch Driver"> | <img src="https://path-to-your-image2.png" width="300" alt="Robot"> |
 </p>
 Bộ xử lý trung tâm: Jetson Nano B01 (Thu thập dữ liệu LiDAR và xử lý thuật toán điều hướng).
 
