@@ -14,7 +14,7 @@ Phần cứng (Hardware)
 
 Mạch Driver
 <p align="left">
-<img src="https://github.com/khaita03/RANSAC_ROBOT/blob/main/real_front.jpg" width="300" alt="Mạch Driver"> | <img src="https://github.com/khaita03/RANSAC_ROBOT/blob/main/real_back.jpg" width="300" alt="Robot"> |
+<img src="https://github.com/khaita03/RANSAC_ROBOT/blob/main/real_front.jpg" width="300" alt="Mạch Driver">      <img src="https://github.com/khaita03/RANSAC_ROBOT/blob/main/real_back.jpg" width="300" alt="Robot"> 
 </p>
 Bộ xử lý trung tâm: Jetson Nano B01 (Thu thập dữ liệu LiDAR và xử lý thuật toán điều hướng).
 
