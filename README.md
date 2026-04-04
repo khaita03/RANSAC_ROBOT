@@ -16,19 +16,13 @@ Cấu trúc phần cứng mạnh mẽ: Sự kết hợp giữa vi điều khiể
 <p align="left">
 <img src="https://github.com/khaita03/RANSAC_ROBOT/blob/main/real_front.jpg" width="300" alt="Mạch Driver mặt trên"> <img src="https://github.com/khaita03/RANSAC_ROBOT/blob/main/real_back.jpg" width="300" alt="Mạch Driver mặt dưới"> 
 </p>
-Sử dụng phần mềm Altium Designer để thiết kế gồm các thành phần chính hoạt động chính. 
-Khối xử lý trung tâm (STM32F405RGT6). 
+Sử dụng phần mềm Altium Designer để thiết kế gồm các thành phần chính hoạt động chính.  
+
 <p align="left">
-<img src="https://github.com/khaita03/RANSAC_ROBOT/blob/main/mcu.jpg" width="300" alt="MCU">      
+<img src="https://github.com/khaita03/RANSAC_ROBOT/blob/main/mcu.jpg" width="300" alt="MCU"> <img src="https://github.com/khaita03/RANSAC_ROBOT/blob/main/power.jpg" width="300" alt="Power_5V"> <img src="https://github.com/khaita03/RANSAC_ROBOT/blob/main/detect.jpg" width="300" alt="Power_detect">     
 </p>
-Khối nguồn 5V cấp cho Jetson Nano (XL4015).
-<p align="left">
-<img src="https://github.com/khaita03/RANSAC_ROBOT/blob/main/power.jpg" width="300" alt="Power_5V">      
-</p>
-khối bảo vệ quá dòng, quá áp cho mạch nguồn 5V (sử dụng OPAMP và ACS712).
-<p align="left">
-<img src="https://github.com/khaita03/RANSAC_ROBOT/blob/main/detect.jpg" width="300" alt="Power_detect">      
-</p>
+Khối xử lý trung tâm (STM32F405RGT6).   Khối nguồn 5V cấp cho Jetson Nano (XL4015).    khối bảo vệ quá dòng, quá áp cho mạch nguồn 5V (sử dụng OPAMP và ACS712).
+
 
 Bộ xử lý trung tâm: Jetson Nano B01 (Thu thập dữ liệu LiDAR và xử lý thuật toán điều hướng).
 
