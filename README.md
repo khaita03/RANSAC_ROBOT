@@ -12,7 +12,7 @@ Cấu trúc phần cứng mạnh mẽ: Sự kết hợp giữa vi điều khiể
 
 ## Mạch Driver
 <p align="left">
-<img src="https://github.com/khaita03/RANSAC_ROBOT/blob/main/real_front.jpg" width="300" alt="Mạch Driver mặt trên"> <img src="https://github.com/khaita03/RANSAC_ROBOT/blob/main/real_back.jpg" width="300" alt="Mạch Driver mặt dưới"> <img src="https://github.com/khaita03/RANSAC_ROBOT/blob/main/pcb.png" width="300" alt="PCB">
+<img src="https://github.com/khaita03/RANSAC_ROBOT/blob/main/real_front.jpg" width="300" alt="Mạch Driver mặt trên"> <img src="https://github.com/khaita03/RANSAC_ROBOT/blob/main/real_back.jpg" width="300" alt="Mạch Driver mặt dưới"> <img src="https://github.com/khaita03/RANSAC_ROBOT/blob/main/pcb.png" width="800" alt="PCB">
 </p>
 Sử dụng phần mềm Altium Designer để thiết kế gồm các thành phần chính hoạt động chính.  
 
