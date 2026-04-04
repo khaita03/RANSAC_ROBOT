@@ -22,7 +22,10 @@ Sử dụng phần mềm Altium Designer để thiết kế gồm các thành ph
 <img src="https://github.com/khaita03/RANSAC_ROBOT/blob/main/mcu.jpg" width="300" alt="MCU"> <img src="https://github.com/khaita03/RANSAC_ROBOT/blob/main/power.jpg" width="300" alt="Power_5V"> <img src="https://github.com/khaita03/RANSAC_ROBOT/blob/main/detect.jpg" width="300" alt="Power_detect">     
 </p>
 Hình 1                Hình 2 Hình 3.
-
+<pre>
+Mạch Driver         Jetson Nano
+LIDAR A1M8          MPU6050
+</pre>
 Khối xử lý trung tâm (STM32F405RGT6).
 
 Khối nguồn 5V cấp cho Jetson Nano (XL4015).
