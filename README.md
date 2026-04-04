@@ -22,14 +22,12 @@ Sử dụng phần mềm Altium Designer để thiết kế gồm các thành ph
 <img src="https://github.com/khaita03/RANSAC_ROBOT/blob/main/mcu.jpg" width="300" alt="MCU"> <img src="https://github.com/khaita03/RANSAC_ROBOT/blob/main/power.jpg" width="300" alt="Power_5V"> <img src="https://github.com/khaita03/RANSAC_ROBOT/blob/main/detect.jpg" width="300" alt="Power_detect">     
 </p>
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Hình 1&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Hình 2&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Hình 3             
-<pre>
-        Hình 1         Hình 2      Hình 3
-</pre>
-Khối xử lý trung tâm (STM32F405RGT6).
 
-Khối nguồn 5V cấp cho Jetson Nano (XL4015).
+Khối xử lý trung tâm (STM32F405RGT6) - Hình 1.
 
-khối bảo vệ quá dòng, quá áp cho mạch nguồn 5V (sử dụng OPAMP và ACS712).
+Khối nguồn 5V cấp cho Jetson Nano (XL4015) - Hình 2.
+
+khối bảo vệ quá dòng, quá áp cho mạch nguồn 5V (sử dụng OPAMP và ACS712) - Hình 3.
 
 
 Bộ xử lý trung tâm: Jetson Nano B01 (Thu thập dữ liệu LiDAR và xử lý thuật toán điều hướng).
