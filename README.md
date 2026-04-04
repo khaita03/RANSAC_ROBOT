@@ -21,7 +21,7 @@ Sử dụng phần mềm Altium Designer để thiết kế gồm các thành ph
 <p align="left">
 <img src="https://github.com/khaita03/RANSAC_ROBOT/blob/main/mcu.jpg" width="300" alt="MCU"> <img src="https://github.com/khaita03/RANSAC_ROBOT/blob/main/power.jpg" width="300" alt="Power_5V"> <img src="https://github.com/khaita03/RANSAC_ROBOT/blob/main/detect.jpg" width="300" alt="Power_detect">     
 </p>
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Hình 1&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Hình 2             
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Hình 1&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Hình 2&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Hình 3             
 <pre>
         Hình 1         Hình 2      Hình 3
 </pre>
