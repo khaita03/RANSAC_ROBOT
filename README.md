@@ -29,7 +29,7 @@ Sử dụng phần mềm Altium Designer để thiết kế gồm các thành ph
 <p align="center">
 <img src="https://github.com/khaita03/RANSAC_ROBOT/blob/main/detect.jpg" width="300" alt="Power_detect">     
 </p>
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Khối bảo vệ quá dòng, quá áp cho mạch nguồn 5V (sử dụng OPAMP và ACS712).   
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Khối bảo vệ quá dòng, quá áp cho mạch nguồn 5V (sử dụng OPAMP và ACS712).   
 
 #### **Note
 Schematic của mạch sẽ được để trong folder PCB/Driver (Nếu không có phần mềm, có thể mở các file *.pdf cùng tên với file *.SchDoc để xem qua schematic của mạch). 
