@@ -16,20 +16,20 @@ Cấu trúc phần cứng mạnh mẽ: Sự kết hợp giữa vi điều khiể
 </p>
 Sử dụng phần mềm Altium Designer để thiết kế gồm các thành phần chính hoạt động chính.  
 
-<p align="center">
+<p align="left">
 <img src="https://github.com/khaita03/RANSAC_ROBOT/blob/main/mcu.jpg" width="300" alt="MCU">      
 </p>
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Khối xử lý trung tâm (STM32F405RGT6).
+Khối xử lý trung tâm (STM32F405RGT6).
 
-<p align="center">
+<p align="left">
 <img src="https://github.com/khaita03/RANSAC_ROBOT/blob/main/power.jpg" width="300" alt="Power_5V">      
 </p>
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Khối nguồn 5V cấp cho Jetson Nano (XL4015).
+Khối nguồn 5V cấp cho Jetson Nano (XL4015).
 
-<p align="center">
+<p align="left">
 <img src="https://github.com/khaita03/RANSAC_ROBOT/blob/main/detect.jpg" width="300" alt="Power_detect">     
 </p>
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Khối bảo vệ quá dòng, quá áp cho mạch nguồn 5V (sử dụng OPAMP và ACS712).   
+Khối bảo vệ quá dòng, quá áp cho mạch nguồn 5V (sử dụng OPAMP và ACS712).   
 
 #### **Note
 Schematic của mạch sẽ được để trong folder PCB/Driver (Nếu không có phần mềm, có thể mở các file *.pdf cùng tên với file *.SchDoc để xem qua schematic của mạch). 
