@@ -1,5 +1,5 @@
-# Hello 
-Đây là đồ án tốt nghiệp của mình năm 2025. Đồ án này tập trung vào việc nghiên cứu và chế tạo một mô hình robot tự hành có khả năng di chuyển ổn định và chính xác giữa các luống cây trồng. Từ đó mở đường cho các robot tiên tiến hơn tưới cây, tưới phân. ----tối ưu hóa các công việc chăm sóc nông nghiệp như phun thuốc, bón phân hoặc giám sát cây trồng.
+# Hello các bạn
+Đây là đồ án tốt nghiệp năm 2025 của tôi, tập trung nghiên cứu và phát triển mô hình Robot tự hành di chuyển giữa luống cây trồng. Dự án triển khai các thuật toán xử lý dữ liệu LiDAR (RANSAC) và điều hướng (Stanley) giúp robot vận hành ổn định và chính xác trong môi trường thực nghiệm với các hàng vật thể giả định. Đây là nền tảng quan trọng để phát triển các hệ thống robot nông nghiệp thông minh trong tương lai như tự động tưới tiêu hoặc bón phân.
 
 # Tính năng nổi bật
 Điều hướng : Sử dụng dữ liệu LiDAR để quét môi trường và xác định khoảng cách giữa các luống cây, vật cản.
