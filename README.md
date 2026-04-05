@@ -17,7 +17,7 @@ Cấu trúc phần cứng mạnh mẽ: Sự kết hợp giữa vi điều khiể
 Sử dụng phần mềm Altium Designer để thiết kế gồm các thành phần chính hoạt động chính.  
 
 <p align="left">
-<img src="https://github.com/khaita03/RANSAC_ROBOT/blob/main/mcu.jpg" width="300" alt="MCU"> <img src="https://github.com/khaita03/RANSAC_ROBOT/blob/main/power.jpg" width="300" alt="Power_5V"> <img src="https://github.com/khaita03/RANSAC_ROBOT/blob/main/detect.jpg" width="300" alt="Power_detect">     
+<img src="https://github.com/khaita03/RANSAC_ROBOT/blob/main/mcu.jpg" width="250" alt="MCU"> <img src="https://github.com/khaita03/RANSAC_ROBOT/blob/main/power.jpg" width="250" alt="Power_5V"> <img src="https://github.com/khaita03/RANSAC_ROBOT/blob/main/detect.jpg" width="250" alt="Power_detect">     
 </p>
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Hình 1&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Hình 2&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Hình 3             
 
