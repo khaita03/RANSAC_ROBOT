@@ -53,3 +53,7 @@ Ngôn ngữ lập trình: C/C++, Python.
 Thư viện sử dụng: rosserial, MPU6050 Library.
 
 # Clip chạy thực tế 
+
+https://github.com/user-attachments/assets/183887ca-86e1-4590-8065-c5278fdd8718
+
+
