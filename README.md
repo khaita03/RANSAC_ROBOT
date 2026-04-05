@@ -2,7 +2,7 @@
 Đây là đồ án tốt nghiệp của mình năm 2025. Đồ án này tập trung vào việc nghiên cứu và chế tạo một mô hình robot tự hành có khả năng di chuyển ổn định và chính xác giữa các luống cây trồng. Từ đó mở đường cho các robot tiên tiến hơn tưới cây, tưới phân. ----tối ưu hóa các công việc chăm sóc nông nghiệp như phun thuốc, bón phân hoặc giám sát cây trồng.
 
 # Tính năng nổi bật
-Điều hướng thông minh: Sử dụng dữ liệu LiDAR để quét môi trường và xác định khoảng cách giữa các luống cây, vật cản.
+Điều hướng : Sử dụng dữ liệu LiDAR để quét môi trường và xác định khoảng cách giữa các luống cây, vật cản.
 
 Xử lý thời gian thực: Thuật toán điều khiển được tối ưu hóa để robot có thể xử lý vật cản và điều chỉnh hướng đi ngay lập tức.
 
@@ -46,11 +46,10 @@ Cảm biến hỗ trợ: MPU6050 (Cân bằng và xác định hướng hướng
 Truyền động: Động cơ DC Servo kèm Encoder độ phân giải cao.
 
 ## Phần mềm (Software)
-Hệ điều hành: Ubuntu / ROS (Robot Operating System).
+Hệ điều hành: Ubuntu, ROS (Robot Operating System).
 
 Ngôn ngữ lập trình: C/C++, Python.
 
-Thư viện sử dụng: MPU6050 Library.
-# Hoạt động 
+Thư viện sử dụng: rosserial, MPU6050 Library.
 
-# Clip chạy thực tế
+# Clip chạy thực tế 
