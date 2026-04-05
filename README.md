@@ -17,12 +17,12 @@ Cấu trúc phần cứng mạnh mẽ: Sự kết hợp giữa vi điều khiể
 Sử dụng phần mềm Altium Designer để thiết kế gồm các thành phần chính hoạt động chính.  
 
 <p align="center">
-<img src="https://github.com/khaita03/RANSAC_ROBOT/blob/main/mcu.jpg" width="250" alt="MCU">      
+<img src="https://github.com/khaita03/RANSAC_ROBOT/blob/main/mcu.jpg" width="300" alt="MCU">      
 </p>
-Khối xử lý trung tâm (STM32F405RGT6) - Hình 1.
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Khối xử lý trung tâm (STM32F405RGT6) - Hình 1.
 
 <img src="https://github.com/khaita03/RANSAC_ROBOT/blob/main/power.jpg" width="250" alt="Power_5V"> <img src="https://github.com/khaita03/RANSAC_ROBOT/blob/main/detect.jpg" width="250" alt="Power_detect">
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Hình 1&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Hình 2&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Hình 3             
+Hình 1&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Hình 2&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Hình 3             
 
 
 
