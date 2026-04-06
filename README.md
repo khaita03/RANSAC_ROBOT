@@ -33,9 +33,9 @@ Khối bảo vệ quá dòng, quá áp cho mạch nguồn 5V (sử dụng OPAMP 
 
 ### **Note
 **Note:** Bạn có thể xem nhanh bản vẽ tại đây:
-* [Sơ đồ nguyên lý Mainboard 1](.mainboard_1%20schematic.png)
-* [Sơ đồ nguyên lý Mainboard 2](.mainboard_2%20schematic.png)
-* [Mạch bảo vệ nguồn](.power_detect%20schematic.png)
+* [Sơ đồ nguyên lý Mainboard 1](./mainboard_1%20schematic.png)
+* [Sơ đồ nguyên lý Mainboard 2](./mainboard_2%20schematic.png)
+* [Mạch bảo vệ nguồn](./power_detect%20schematic.png)
 
 ## Phần cứng (Hardware)
 Bộ xử lý trung tâm: Jetson Nano B01 (Thu thập dữ liệu LiDAR và xử lý thuật toán điều hướng).
